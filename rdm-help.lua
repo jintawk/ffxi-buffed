@@ -27,7 +27,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ]]
 
 _addon.name = 'rdm-help'
-_addon.version = '1.0'
+_addon.version = '1.1'
 _addon.author = 'Jintawk/Jynvoco (Asura)'
 _addon.command = 'skill'
 
@@ -49,8 +49,8 @@ defaults.pos = {}
 defaults.pos.x = 300
 defaults.pos.y = 475
 defaults.text = {}
-defaults.text.font = 'Courier New'
-defaults.text.size = 10
+defaults.text.font = 'Arial'
+defaults.text.size = 8
 defaults.flags = {}
 defaults.flags.bold = true
 defaults.flags.draggable = true
@@ -58,14 +58,17 @@ defaults.bg = {}
 defaults.bg.alpha = 128
 
 buffList = {
-	"Light Arts", 
 	"Addendum: White", 
 	"Composure",
 	"Refresh",
+	"Haste",
+	"Regen",
 	"Enthunder II",
 	"Phalanx",
 	"Stoneskin",
 	"Blink",
+	"Protect",
+	"Shell"
 }
 
 settings = config.load(defaults)
@@ -80,9 +83,7 @@ function Update()
 	local buffStatus = List.new()
 
 	for i = 1, #buffList do
-		local buffId = GetBuffId(buffList[i])
-
-		windower.add_to_chat(207, "gbi " .. buffList[i] .. " = " .. buffId)
+		local buffId = GetBuffId(buffList[i])		
 
 		if buffList[i] == nil then
 			windower.add_to_chat(207, "! rdm-help: Unknown buffid -> " .. buffId)						
@@ -94,13 +95,11 @@ function Update()
 
 			for j = 1, #activeBuffs do
 				if activeBuffs[j] == buffId then
-					windower.add_to_chat(207, "buff found ! " .. buff.name)
 					buff.active = "ON"
 				end
 			end
 
 			buffStatus:push_back(buff)
-			windower.add_to_chat(207, "Added " .. buff.name .. " " .. buff.id .. " " .. buff.active)			
 		end
 	end
 
@@ -118,7 +117,7 @@ function GetBuffId(buffName)
 end
 
 function UpdateGUI(buffStatus)
-	local guiStr = "rdm-help"
+	local guiStr = "-- rdm-help --"
 
 	for i = buffStatus.first, buffStatus.first + buffStatus.count - 1 do
 		if buffStatus.items[i].active == "ON" then
@@ -149,12 +148,10 @@ windower.register_event('login', function()
 end())
 
 windower.register_event('gain buff', function(buff_id)
-	windower.add_to_chat(207, "gain ")
 	Update()
 end)
 
 windower.register_event('lose buff', function(buff_id)
-	windower.add_to_chat(207, "lose" )
 	Update()
 end)
 
