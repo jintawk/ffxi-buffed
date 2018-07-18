@@ -27,7 +27,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ]]
 
 _addon.name = 'rdm-help'
-_addon.version = '1.1'
+_addon.version = '1.2'
 _addon.author = 'Jintawk/Jynvoco (Asura)'
 _addon.command = 'skill'
 
@@ -133,19 +133,19 @@ end
 
 windower.register_event('load', function()
 	Update()
-end())
+end)
 
-windower.register_event('zone change', function()
+windower.register_event('zone change', function(new_id, old_id)
 	Update()
-end())
+end)
 
-windower.register_event('job change', function()
+windower.register_event('job change', function(main_job_id, main_job_level, sub_job_id, sub_job_level)
 	Update()
-end())
+end)
 
-windower.register_event('login', function()
+windower.register_event('login', function(name)
 	Update()
-end())
+end)
 
 windower.register_event('gain buff', function(buff_id)
 	Update()
@@ -155,3 +155,6 @@ windower.register_event('lose buff', function(buff_id)
 	Update()
 end)
 
+windower.register_event('time change', function(new, old)
+	Update()
+end)
