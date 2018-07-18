@@ -26,8 +26,8 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ]]
 
-_addon.name = 'rdm-help'
-_addon.version = '1.2'
+_addon.name = 'rebuffed'
+_addon.version = '1.3'
 _addon.author = 'Jintawk/Jynvoco (Asura)'
 _addon.command = 'skill'
 
@@ -117,13 +117,13 @@ function GetBuffId(buffName)
 end
 
 function UpdateGUI(buffStatus)
-	local guiStr = "-- rdm-help --"
+	local guiStr = "[" .. windower.ffxi.get_player().name .. "]"
 
 	for i = buffStatus.first, buffStatus.first + buffStatus.count - 1 do
 		if buffStatus.items[i].active == "ON" then
-			guiStr = guiStr .. "\n\\cs(255, 255, 255)" .. buffStatus.items[i].name .. ": \\cs(0,255,0)" .. buffStatus.items[i].active
+			guiStr = guiStr .. "\n\\cs(0, 255, 0)" .. buffStatus.items[i].name 
 		else
-			guiStr = guiStr .. "\n\\cs(255, 255, 255)" .. buffStatus.items[i].name .. ": \\cs(255,0,0)" .. buffStatus.items[i].active
+			guiStr = guiStr .. "\n\\cs(255, 0, 0)" .. buffStatus.items[i].name 
 		end
 	end
 
