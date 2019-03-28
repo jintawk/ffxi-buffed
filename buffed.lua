@@ -27,7 +27,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ]]
 
 _addon.name = 'rebuffed'
-_addon.version = '1.3'
+_addon.version = '1.31'
 _addon.author = 'Jintawk/Jynvoco (Asura)'
 _addon.command = 'skill'
 
@@ -60,6 +60,7 @@ defaults.bg.alpha = 128
 buffList = {
 	"Addendum: White", 
 	"Composure",
+	"Saboteur",
 	"Refresh",
 	"Haste",
 	"Regen",
@@ -68,7 +69,8 @@ buffList = {
 	"Stoneskin",
 	"Blink",
 	"Protect",
-	"Shell"
+	"Shell",
+	"Shock Spikes"
 }
 
 settings = config.load(defaults)
