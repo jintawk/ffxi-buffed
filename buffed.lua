@@ -26,7 +26,7 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ]]
 
-_addon.name = 'rebuffed'
+_addon.name = 'buffed'
 _addon.version = '1.31'
 _addon.author = 'Jintawk/Jynvoco (Asura)'
 _addon.command = 'skill'
@@ -66,11 +66,12 @@ buffList = {
 	"Regen",
 	"Enthunder II",
 	"Phalanx",
+	"Shock Spikes",
+	"MND Boost",
 	"Stoneskin",
 	"Blink",
 	"Protect",
-	"Shell",
-	"Shock Spikes"
+	"Shell"
 }
 
 settings = config.load(defaults)
@@ -86,7 +87,7 @@ function Update()
 
 	for i = 1, #buffList do
 		local buffId = GetBuffId(buffList[i])		
-
+		
 		if buffList[i] == nil then
 			windower.add_to_chat(207, "! rdm-help: Unknown buffid -> " .. buffId)						
 		elseif buffId == -1 then
