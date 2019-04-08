@@ -39,9 +39,16 @@
             </stroke>
         </text>
     </global>
+    <jintawk>
+        <pos>
+            <x>1673</x>
+            <y>881</y>
+        </pos>
+    </jintawk>
     <jynvoco>
         <pos>
-            <x>1667</x>
+            <x>1675</x>
+            <y>880</y>
         </pos>
     </jynvoco>
 </settings>
