@@ -8,6 +8,7 @@
             <red>0</red>
             <visible>true</visible>
         </bg>
+        <buffs>Addendum: White,Composure,Saboteur,Refresh,Haste,Regen,Enthunder II,Phalanx,Shock Spikes,MND Boost,Stoneskin,Blink,Protect,Shell</buffs>
         <flags>
             <bold>true</bold>
             <bottom>false</bottom>
@@ -40,6 +41,7 @@
         </text>
     </global>
     <jintawk>
+        <buffs>Composure,Saboteur,Refresh,Haste,Regen,Enthunder II,Phalanx,Ice Spikes,MND Boost,Stoneskin,Blink,Protect,Shell</buffs>
         <pos>
             <x>1673</x>
             <y>881</y>
