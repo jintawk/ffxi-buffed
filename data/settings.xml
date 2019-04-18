@@ -41,7 +41,7 @@
         </text>
     </global>
     <jintawk>
-        <buffs>Composure,Saboteur,Refresh,Haste,Regen,Enthunder II,Phalanx,Ice Spikes,MND Boost,Stoneskin,Blink,Protect,Shell</buffs>
+        <buffs>Addendum: White,Composure,Saboteur,Refresh,Haste,Regen,Enthunder II,Phalanx,Ice Spikes,MND Boost,Stoneskin,Blink,Protect,Shell</buffs>
         <pos>
             <x>1673</x>
             <y>881</y>
@@ -53,4 +53,7 @@
             <y>880</y>
         </pos>
     </jynvoco>
+    <kifavoco>
+        <buffs>Boost,Counterstance,Dodge,Focus,Footwork,Formless Strikes,Impetus,Perfect Counter</buffs>
+    </kifavoco>
 </settings>

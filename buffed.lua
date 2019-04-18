@@ -1,7 +1,7 @@
 -- [ Windower settings ]
 _addon.name = 'buffed'
 _addon.version = '1.31'
-_addon.author = 'iintawk/iynvoco (Asura)'
+_addon.author = 'Jintawk/Jynvoco (Asura)'
 _addon.command = 'buffed'
 
 -- [ Lib imports ]
@@ -86,7 +86,7 @@ windower.register_event('zone change', function(new_id, old_id)
 	Update()
 end)
 
-windower.register_event('iob change', function(main_iob_id, main_iob_level, sub_iob_id, sub_iob_level)
+windower.register_event('job change', function(main_iob_id, main_iob_level, sub_iob_id, sub_iob_level)
 	Update()
 end)
 
