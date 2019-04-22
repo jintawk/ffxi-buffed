@@ -8,7 +8,7 @@
             <red>0</red>
             <visible>true</visible>
         </bg>
-        <buffs>Addendum: White,Composure,Saboteur,Refresh,Haste,Regen,Enthunder II,Phalanx,Shock Spikes,MND Boost,Stoneskin,Blink,Protect,Shell</buffs>
+        <buffs>Addendum: White,Composure,Multi Strikes,Saboteur,Refresh,Haste,Regen,Enthunder II,Phalanx,Shock Spikes,MND Boost,Stoneskin,Blink,Protect,Shell,Copy Image*</buffs>
         <flags>
             <bold>true</bold>
             <bottom>false</bottom>
@@ -41,19 +41,24 @@
         </text>
     </global>
     <jintawk>
-        <buffs>Addendum: White,Composure,Saboteur,Refresh,Haste,Regen,Enthunder II,Phalanx,Ice Spikes,MND Boost,Stoneskin,Blink,Protect,Shell</buffs>
+        <buffs>Addendum: White,Multi Strikes,Composure,Saboteur,Refresh,Haste,Regen,Enthunder II,Phalanx,Ice Spikes,MND Boost,Stoneskin,Blink,Protect,Shell,Copy Image*</buffs>
         <pos>
-            <x>1673</x>
-            <y>881</y>
+            <x>1685</x>
+            <y>845</y>
         </pos>
     </jintawk>
     <jynvoco>
+        <buffs>Addendum: White,Multi Strikes,Composure,Saboteur,Refresh,Haste,Regen,Enthunder II,Phalanx,Ice Spikes,MND Boost,Stoneskin,Blink,Protect,Shell,Copy Image*</buffs>
         <pos>
             <x>1675</x>
             <y>880</y>
         </pos>
     </jynvoco>
     <kifavoco>
-        <buffs>Boost,Counterstance,Dodge,Focus,Footwork,Formless Strikes,Impetus,Perfect Counter</buffs>
+        <buffs>Boost,Counterstance,Dodge,Focus,Footwork,Formless Strikes,Impetus,Perfect Counter,Copy Image*</buffs>
+        <pos>
+            <x>300</x>
+            <y>475</y>
+        </pos>
     </kifavoco>
 </settings>

@@ -18,6 +18,7 @@ require "List"
 
 -- [ Local Lib/Helper imports ]
 require "gui"
+require "util"
 
 -- [ Init settings ]
 defaults = {}
@@ -25,19 +26,26 @@ defaults.buffs = S{	"Haste", "Refresh" }
 
 settings = config.load(defaults)
 
+-- [ vars ]
+local cachedBuffIds = {}
+
 -- [ Functions ]
 function GetBuffIdsFromResources(buffName)
-	local buffIds = {}
+	if cachedBuffIds[buffName] ~= nil then 
+		return cachedBuffIds[buffName] 
+	end
+
 	local numBuffs = 0
+	cachedBuffIds[buffName] = {}
 
 	for key, val in pairs(res.buffs) do
-		if val.en == buffName then
+		if string.match(val.en, buffName) then
 			numBuffs = numBuffs + 1
-			buffIds[numBuffs] = key			
+			cachedBuffIds[buffName][numBuffs] = key		
 		end
 	end
 
-	return buffIds
+	return cachedBuffIds[buffName]
 end
 
 function Update()
@@ -50,6 +58,7 @@ function Update()
 	local currentPlayerBuffs = windower.ffxi.get_player().buffs
 
 	for key,val in pairs(settings.buffs) do
+
 		local resourceBuffIds = GetBuffIdsFromResources(key)		
 		
 		if next(resourceBuffIds) == nil then
@@ -58,7 +67,7 @@ function Update()
 			local trackedBuff = Buff.new({ key, false })
 
 			for i = 1, #currentPlayerBuffs do
-				for j = 1, #resourceBuffIds do
+				for j = 1, #resourceBuffIds do					
 					if currentPlayerBuffs[i] == resourceBuffIds[j] then
 						trackedBuff.active = true					
 						break							
