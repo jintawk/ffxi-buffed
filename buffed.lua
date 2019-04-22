@@ -22,7 +22,6 @@ require "util"
 
 -- [ Init settings ]
 defaults = {}
-defaults.buffs = S{	"Haste", "Refresh" }
 
 settings = config.load(defaults)
 
@@ -57,14 +56,22 @@ function Update()
 	local buffsToDisplay = List.new()
 	local currentPlayerBuffs = windower.ffxi.get_player().buffs
 
-	for key,val in pairs(settings.buffs) do
+	local settingsBuffsToUse = nil
+	local jobKey = (windower.ffxi.get_player().main_job .. windower.ffxi.get_player().sub_job):lower()
 
-		local resourceBuffIds = GetBuffIdsFromResources(key)		
+	--dbg
+	if settings.buffs[jobKey] ~= nil then
+		settingsBuffsToUse = settings.buffs[jobKey]
+	end
+
+	for key,val in pairs(split(settingsBuffsToUse, ",")) do
+
+		local resourceBuffIds = GetBuffIdsFromResources(val)		
 		
 		if next(resourceBuffIds) == nil then
-			windower.add_to_chat(207, "! rdm-help: Unknown buff in settings -> " .. tostring(key))					
+			windower.add_to_chat(207, "! rdm-help: Unknown buff in settings -> " .. tostring(val))					
 		else		
-			local trackedBuff = Buff.new({ key, false })
+			local trackedBuff = Buff.new({ val, false })
 
 			for i = 1, #currentPlayerBuffs do
 				for j = 1, #resourceBuffIds do					
