@@ -26,6 +26,12 @@ function clear_gui()
 end
 
 function UpdateGUI(currentBuffsToDisplay)
+	if currentBuffsToDisplay == nil then
+		gui:text("")
+		gui:visible(false)
+		return
+	end
+
 	local guiStr = "[" .. windower.ffxi.get_player().name .. "]"
 
 	if currentBuffsToDisplay.count > 0 then

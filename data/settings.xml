@@ -12,9 +12,10 @@
             <mnkdnc>Boost,Counterstance,Dodge,Focus,Footwork,Formless Strikes,Impetus,Perfect Counter,(.*) Samba</mnkdnc>
             <mnknin>Boost,Counterstance,Dodge,Focus,Footwork,Formless Strikes,Impetus,Perfect Counter,Copy Image(.*)</mnknin>
             <mnkwar>Boost,Counterstance,Dodge,Focus,Footwork,Formless Strikes,Impetus,Perfect Counter,Berserk,Aggressor,Warcry</mnkwar>
+            <rdmblm>Composure,Saboteur,Haste,Refresh,Regen,Multi Strikes,Enthunder II,Phalanx,(.*) Spikes,(.*) Boost,Stoneskin,Blink,Protect,Shell</rdmblm>
             <rdmdnc>Composure,Saboteur,Haste,Refresh,Regen,Multi Strikes,Enthunder II,Phalanx,(.*) Spikes,(.*) Boost,Stoneskin,Blink,Protect,Shell,(.*) Samba</rdmdnc>
-            <rdmnin>Composure,Saboteur,Haste,Refresh,Regen,Multi Strikes,Enthunder II,Phalanx,(.*) Spikes,(.*) Boost,Stoneskin,Blink,Protect,Shell,Copy Image(.*)</rdmnin>
-            <rdmsch>Addendum*,Composure,Saboteur,Haste,Refresh,Regen,Multi Strikes,Enthunder II,Phalanx,(.*) Spikes,(.*) Boost,Stoneskin,Blink,Protect,Shell</rdmsch>
+            <rdmnin>Composure,Saboteur,Haste,Refresh,Regen,Multi Strikes,Enthunder II,Phalanx,(.*) Spikes,(.*) Boost,Stoneskin,Protect,Shell,Copy Image(.*)</rdmnin>
+            <rdmsch>Addendum(.*),Composure,Saboteur,Haste,Refresh,Regen,Multi Strikes,Enthunder II,Phalanx,(.*) Spikes,(.*) Boost,Stoneskin,Blink,Protect,Shell</rdmsch>
             <thfdnc>(.*) Samba</thfdnc>
             <thfnin>Copy Image(.*)</thfnin>
         </buffs>

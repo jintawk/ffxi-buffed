@@ -48,8 +48,7 @@ function GetBuffIdsFromResources(buffName)
 end
 
 function Update()
-	if windower == nil or windower.ffxi == nil or windower.ffxi.get_player() == nil or windower.ffxi.get_player().buffs == nil then
-		windower.add_to_chat(207, "! rdm-help can't start - something is nil")
+	if windower == nil or windower.ffxi == nil or windower.ffxi.get_player() == nil or windower.ffxi.get_player().buffs == nil then		
 		return
 	end
 
@@ -62,6 +61,10 @@ function Update()
 	--dbg
 	if settings.buffs[jobKey] ~= nil then
 		settingsBuffsToUse = settings.buffs[jobKey]
+	else 
+		buffsToDisplay = nil
+		UpdateGUI(buffsToDisplay)
+		return
 	end
 
 	for key,val in pairs(split(settingsBuffsToUse, ",")) do
