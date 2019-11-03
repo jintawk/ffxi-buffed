@@ -38,7 +38,7 @@ function GetBuffIdsFromResources(buffName)
 	cachedBuffIds[buffName] = {}
 
 	for key, val in pairs(res.buffs) do
-		if string.match(val.en, buffName) then
+		if windower.regex.match(val.en, buffName) then
 			numBuffs = numBuffs + 1
 			cachedBuffIds[buffName][numBuffs] = key		
 		end
