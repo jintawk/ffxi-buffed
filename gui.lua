@@ -1,3 +1,4 @@
+require('strings')
 config = require('config')
 texts = require('texts')
 
@@ -44,7 +45,13 @@ function UpdateGUI(currentBuffsToDisplay)
 				fontColour = "\\cs(255, 0, 0)"
 			end
 
-			guiStr = guiStr .. "\n" .. fontColour .. currentBuffsToDisplay.items[i].name 
+			local buffNameTrimmed = currentBuffsToDisplay.items[i].name 
+
+			if string.len(buffNameTrimmed) > 12 then
+				buffNameTrimmed = string.slice(buffNameTrimmed, 1, 12) .. "..."
+			end
+
+			guiStr = guiStr .. "\n" .. fontColour .. buffNameTrimmed
 		end
 	end
 

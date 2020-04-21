@@ -15,10 +15,11 @@
             <rdmblm>Composure,Saboteur,Haste,Refresh,Regen,Multi Strikes,Enthunder II,Phalanx,(.*) Spikes,(.*) Boost,Stoneskin,Blink,Protect,Shell</rdmblm>
             <rdmblu>Composure,Saboteur,Haste,Refresh,Regen,Multi Strikes,Enthunder II,Defense Boost,Phalanx,(.*) Spikes,^(?!Defense).+Boost,Stoneskin,Blink,Protect,Shell</rdmblu>
             <rdmdnc>Composure,Saboteur,Haste,Refresh,Regen,Multi Strikes,Enthunder II,Phalanx,(.*) Spikes,(.*) Boost,Stoneskin,Blink,Protect,Shell,(.*) Samba</rdmdnc>
-            <rdmnin>Composure,Saboteur,Haste,Refresh,Regen,Multi Strikes,Enthunder II,Phalanx,(.*) Spikes,(.*) Boost,Stoneskin,Protect,Shell,Copy Image(.*)</rdmnin>
+            <rdmnin>Composure,Saboteur,Haste,Refresh,Regen,Multi Strikes,En(fir|bli|aer|sto|thu|wat).*,Phalanx,(.*) Spikes,(.*) Boost,Stoneskin,Protect,Shell,Copy Image(.*)</rdmnin>
             <rdmsch>Addendum(.*),Composure,Saboteur,Haste,Refresh,Regen,Multi Strikes,Enthunder II,Phalanx,(.*) Spikes,(.*) Boost,Stoneskin,Blink,Protect,Shell</rdmsch>
             <thfdnc>(.*) Samba</thfdnc>
-            <thfnin>Copy Image(.*)</thfnin>
+            <thfnin>Conspirator,Copy Image(.*)</thfnin>
+            <thfwar>Conspirator,Berserk,Aggressor,Warcry</thfwar>
         </buffs>
         <flags>
             <bold>true</bold>
@@ -53,8 +54,8 @@
     </global>
     <jintawk>
         <pos>
-            <x>1231</x>
-            <y>851</y>
+            <x>665</x>
+            <y>732</y>
         </pos>
     </jintawk>
     <kifavoco>
