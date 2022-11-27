@@ -4,7 +4,7 @@ List = {}
 List.__index = List
 
 --[[
-    Create a new List 
+    Create a new List
 ]]
 function List.new()
   local li = setmetatable({}, List)
@@ -95,7 +95,8 @@ end
     item: Item to search for
 ]]
 function List:contains(item)
-    found = false
+    local found = false
+
     for idx = self.first, self.first + self.count - 1 do
         if self.items[idx] == item then
             found = true
@@ -108,7 +109,7 @@ end
 --[[
     Clear a List of all items
 ]]
-function List:clear(List)
+function List:clear(list)
     for idx = list.first, list.first + list.count - 1 do
         list.items[idx] = nil
     end
