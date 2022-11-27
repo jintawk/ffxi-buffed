@@ -1,6 +1,7 @@
 # ffxi-buffed
 
 FFXI addon that displays buff/debuff info in a simple and clear UI
+
 This allows you to easily tell [at a glance] whether you are missing buffs or not, or have been debuffed
 
 
