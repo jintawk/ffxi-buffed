@@ -1,8 +1,8 @@
 require('strings')
 config = require('config')
-texts = require('texts')
+local texts = require('texts')
 
-defaults = {}
+local defaults = {}
 defaults.pos = {}
 defaults.pos.x = 300
 defaults.pos.y = 475
@@ -10,21 +10,13 @@ defaults.text = {}
 defaults.text.font = 'Arial'
 defaults.text.size = 8
 defaults.flags = {}
-defaults.flags.bold = true
+defaults.flags.bold = false
 defaults.flags.draggable = true
 defaults.bg = {}
 defaults.bg.alpha = 128
 
-settings = config.load(defaults)
-gui = texts.new(settings)
-
-listGUI = texts.new(settings)
-settings = config.load()
-
-function clear_gui()
-	listGUI:text("")
-	listGUI:visible(false)
-end
+local settings = config.load(defaults)
+local gui = texts.new(settings)
 
 function UpdateGUI(currentBuffsToDisplay)
 	if currentBuffsToDisplay == nil then
@@ -39,16 +31,20 @@ function UpdateGUI(currentBuffsToDisplay)
 		for i = currentBuffsToDisplay.first, currentBuffsToDisplay.last do
 			local fontColour = ""
 
-			if currentBuffsToDisplay.items[i].active then
+			if currentBuffsToDisplay.items[i].debuff then
+				fontColour = "\\cs(255, 0, 255)"
+			elseif currentBuffsToDisplay.items[i].tracked == false then
+				fontColour = "\\cs(255, 255, 255)"
+			elseif currentBuffsToDisplay.items[i].active then
 				fontColour = "\\cs(0, 255, 0)"
 			else
-				fontColour = "\\cs(255, 0, 0)"
+				fontColour = "\\cs(255, 75, 0)"
 			end
 
 			local buffNameTrimmed = currentBuffsToDisplay.items[i].name 
 
-			if string.len(buffNameTrimmed) > 12 then
-				buffNameTrimmed = string.slice(buffNameTrimmed, 1, 12) .. "..."
+			if string.len(buffNameTrimmed) > 20 then
+				buffNameTrimmed = string.slice(buffNameTrimmed, 1, 20) .. "..."
 			end
 
 			guiStr = guiStr .. "\n" .. fontColour .. buffNameTrimmed
