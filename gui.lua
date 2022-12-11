@@ -2,24 +2,18 @@ require('strings')
 config = require('config')
 local texts = require('texts')
 
-local defaults = {}
-defaults.pos = {}
-defaults.pos.x = 300
-defaults.pos.y = 475
-defaults.text = {}
-defaults.text.font = 'Arial'
-defaults.text.size = 8
-defaults.flags = {}
-defaults.flags.bold = false
-defaults.flags.draggable = true
-defaults.bg = {}
-defaults.bg.alpha = 128
+local defaults = {
+	pos = { x = 300, y = 475 },
+	text = { font = 'Arial', size = 8 },
+	flags = { bold = false, draggable = true },
+	bg = { alpha = 128 }
+}
 
 local settings = config.load(defaults)
 local gui = texts.new(settings)
 
 function UpdateGUI(currentBuffsToDisplay)
-	if currentBuffsToDisplay == nil then
+	if not currentBuffsToDisplay then
 		gui:text("")
 		gui:visible(false)
 		return
@@ -41,11 +35,7 @@ function UpdateGUI(currentBuffsToDisplay)
 				fontColour = "\\cs(255, 75, 0)"
 			end
 
-			local buffNameTrimmed = currentBuffsToDisplay.items[i].name 
-
-			if string.len(buffNameTrimmed) > 20 then
-				buffNameTrimmed = string.slice(buffNameTrimmed, 1, 20) .. "..."
-			end
+			local buffNameTrimmed = string.sub(currentBuffsToDisplay.items[i].name, 1, 20)
 
 			guiStr = guiStr .. "\n" .. fontColour .. buffNameTrimmed
 		end
