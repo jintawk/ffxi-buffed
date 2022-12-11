@@ -1,5 +1,5 @@
 -- Create a dictionary that maps debuff IDs to their names
-local debuffNames = {
+debuffNames = {
     [1] = "Weakness",
     [2] = "Sleep",
     [3] = "Poison",
