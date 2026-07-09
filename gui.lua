@@ -1,46 +1,124 @@
 require('strings')
 config = require('config')
-local texts = require('texts')
+slate = require('slate')
 
 local defaults = {
 	pos = { x = 300, y = 475 },
-	text = { font = 'Arial', size = 8 },
-	flags = { bold = false, draggable = true },
-	bg = { alpha = 128 }
+	ui = {
+		scale = 1,
+		minimized = false,
+	},
 }
 
-local settings = config.load(defaults)
-local gui = texts.new(settings)
+-- global: buffed.lua reads settings.buffs from this same table
+settings = config.load(defaults)
+
+local UI_W  = 170
+local ROW_H = 17
+
+local ui = {
+	built = false,
+	panel = nil,
+	rows = {},        -- pooled name labels
+}
+
+local function build_ui()
+	if ui.built then
+		return
+	end
+	ui.built = true
+	slate.set_scale(tonumber(settings.ui.scale) or 1)
+
+	ui.panel = slate.Panel({
+		x = settings.pos.x,
+		y = settings.pos.y,
+		w = UI_W,
+		content_h = 40,
+		title = 'BUFFED',
+		minimized = settings.ui.minimized,
+		on_move = function(x, y)
+			settings.pos.x = x
+			settings.pos.y = y
+			config.save(settings)
+		end,
+		on_minimize = function(min)
+			settings.ui.minimized = min
+			config.save(settings)
+		end,
+	})
+end
+
+local function ensure_rows(n)
+	for i = #ui.rows + 1, n do
+		local row = slate.Label({size = 10, color = slate.color.text})
+		ui.panel:add(row, 10, 4 + (i - 1) * ROW_H)
+		ui.rows[i] = row
+	end
+end
 
 function UpdateGUI(currentBuffsToDisplay)
-	if not currentBuffsToDisplay then
-		gui:text("")
-		gui:visible(false)
+	if not currentBuffsToDisplay or currentBuffsToDisplay.count == 0 then
+		if ui.built then
+			ui.panel:hide()
+		end
 		return
 	end
 
-	local guiStr = "[" .. windower.ffxi.get_player().name .. "]"
+	build_ui()
 
-	if currentBuffsToDisplay.count > 0 then
-		for i = currentBuffsToDisplay.first, currentBuffsToDisplay.last do
-			local fontColour = ""
+	local n = currentBuffsToDisplay.count
+	ensure_rows(n)
+	ui.panel:content_height(4 + n * ROW_H + 4)
 
-			if currentBuffsToDisplay.items[i].debuff then
-				fontColour = "\\cs(255, 0, 255)"
-			elseif currentBuffsToDisplay.items[i].tracked == false then
-				fontColour = "\\cs(255, 255, 255)"
-			elseif currentBuffsToDisplay.items[i].active then
-				fontColour = "\\cs(0, 255, 0)"
+	local slot = 0
+	for i = currentBuffsToDisplay.first, currentBuffsToDisplay.last do
+		local item = currentBuffsToDisplay.items[i]
+		if item then
+			slot = slot + 1
+			local row = ui.rows[slot]
+			ui.panel:place(row, 10, 4 + (slot - 1) * ROW_H)
+			row:text(string.sub(item.name, 1, 20))
+			if item.debuff then
+				row:color(slate.color.bad)
+			elseif item.tracked == false then
+				row:color(slate.color.text)
+			elseif item.active then
+				row:color(slate.color.ok)
 			else
-				fontColour = "\\cs(255, 75, 0)"
+				row:color(slate.color.warn)
 			end
-
-			local buffNameTrimmed = string.sub(currentBuffsToDisplay.items[i].name, 1, 20)
-
-			guiStr = guiStr .. "\n" .. fontColour .. buffNameTrimmed
 		end
 	end
 
-	gui:text(guiStr)
-	gui:visible(true)
+	if not ui.panel:visible() then
+		ui.panel:show()
+	end
+
+	if not ui.panel:is_minimized() then
+		for i = 1, #ui.rows do
+			ui.rows[i]:visible(i <= slot)
+		end
+	end
 end
+
+-- Slate protocol + user commands; buffed had no command handler before
+windower.register_event('addon command', function(...)
+	if slate.handle_command(...) then
+		return
+	end
+	local args = {...}
+	local cmd = (args[1] or ''):lower()
+	if cmd == 'scale' then
+		local n = tonumber(args[2])
+		if n and n >= 0.5 and n <= 3 then
+			settings.ui.scale = n
+			config.save(settings)
+			slate.set_scale(n)
+			windower.add_to_chat(207, 'buffed: HUD scale set to ' .. n)
+		else
+			windower.add_to_chat(207, 'buffed: usage //buffed scale <0.5-3>')
+		end
+	else
+		windower.add_to_chat(207, 'buffed: commands: scale <n>. Buff lists live in data/settings.xml.')
+	end
+end)

@@ -2,24 +2,26 @@
 <settings>
     <global>
         <bg>
-            <alpha>200</alpha>
+            <alpha>255</alpha>
             <blue>0</blue>
             <green>0</green>
             <red>0</red>
             <visible>true</visible>
         </bg>
         <buffs>
-            <blurdm>Protect,Shell,Aquaveil,Refresh,Regen,Haste,En(fir|bli|aer|sto|thu|wat).*,Phalanx,Defense Boost,(.*) Spikes,Blink,Stoneskin,Bar(fire|bliz|aero|ston|thun|wate).*,Bar(slee|pois|para|blin|sile|petr|viru|amne).*</blurdm>
-            <bluwar>Refresh,Haste,Phalanx,Defense Boost,Blink</bluwar>
+            <blurdm>Mighty Guard,Protect,Shell,Aquaveil,Refresh,Regen,Haste,En(fir|bli|aer|sto|thu|wat).*,Magic Shield,Phalanx,Defense Boost,(.*) Spikes,Blink,Stoneskin,Bar(fire|bliz|aero|ston|thun|wate).*,Bar(slee|pois|para|blin|sile|petr|viru|amne).*</blurdm>
+            <blurun>Mighty Guard,Haste,Refresh,Regen,Phalanx,Defense Boost,Magic Def. Boost,Magic Shield,Blink,Blaze Spikes,Swordplay,Lux|Tenebrae|Unda|Ignis|Gelus|Flabra|Tellus|Sulpor,Bar(fire|bliz|aero|ston|thun|wate).*,Bar(slee|pois|para|blin|sile|petr|viru|amne).*,Aquaveil,Protect,Shell</blurun>
+            <bluwar>Mighty Guard,Refresh,Haste,Phalanx,Defense Boost,Magic Def. Boost,Blink</bluwar>
             <mnkdnc>Boost,Counterstance,Dodge,Focus,Footwork,Formless Strikes,Impetus,Perfect Counter,(.*) Samba</mnkdnc>
             <mnknin>Boost,Counterstance,Dodge,Focus,Footwork,Formless Strikes,Impetus,Perfect Counter,Copy Image(.*)</mnknin>
             <mnkwar>Boost,Counterstance,Dodge,Focus,Footwork,Formless Strikes,Impetus,Perfect Counter,Berserk,Aggressor,Warcry</mnkwar>
-            <pldblu>Phalanx,Defense Boost,Reprisal,Enmity Boost,Sentinel,Rampart,Fealty,Majesty,Protect,Shell</pldblu>
-            <rdmblm>Composure,Saboteur,Haste,Refresh,Regen,Multi Strikes,En(fir|bli|aer|sto|thu|wat).*,Phalanx,(.*) Spikes,(.*) Boost,Stoneskin,Blink,Aquaveil,Protect,Shell,Bar(fire|bliz|aero|ston|thun|wate).*,Bar(slee|pois|para|blin|sile|petr|viru|amne).*</rdmblm>
-            <rdmblu>Composure,Saboteur,Haste,Refresh,Regen,Multi Strikes,En(fir|bli|aer|sto|thu|wat).*,Defense Boost,Phalanx,(.*) Spikes,^(?!Defense).+Boost,Stoneskin,Blink,Aquaveil,Protect,Shell,Bar(fire|bliz|aero|ston|thun|wate).*,Bar(slee|pois|para|blin|sile|petr|viru|amne).*</rdmblu>
-            <rdmdnc>Composure,Saboteur,Haste,Refresh,Regen,Multi Strikes,En(fir|bli|aer|sto|thu|wat).*,Phalanx,(.*) Spikes,(.*) Boost,Stoneskin,Blink,Aquaveil,Protect,Shell,Bar(fire|bliz|aero|ston|thun|wate).*,Bar(slee|pois|para|blin|sile|petr|viru|amne).*,(.*) Samba</rdmdnc>
-            <rdmnin>Composure,Saboteur,Haste,Refresh,Regen,Multi Strikes,En(fir|bli|aer|sto|thu|wat).*,Phalanx,(.*) Spikes,(.*) Boost,Stoneskin,Aquaveil,Protect,Shell,Bar(fire|bliz|aero|ston|thun|wate).*,Bar(slee|pois|para|blin|sile|petr|viru|amne).*,Copy Image(.*)</rdmnin>
-            <rdmsch>Reraise,Addendum(.*),Composure,Saboteur,Haste,Refresh,Regen,Multi Strikes,En(fir|bli|aer|sto|thu|wat).*,Phalanx,(.*) Spikes,(.*) Boost,Stoneskin,Blink,Aquaveil,Protect,Shell,Bar(fire|bliz|aero|ston|thun|wate).*,Bar(slee|pois|para|blin|sile|petr|viru|amne).*,Klimaform</rdmsch>
+            <pldblu>Enlight,Phalanx,Defense Boost,Reprisal,Enmity Boost,Palisade,Sentinel,Rampart,Fealty,Majesty,Protect,Shell</pldblu>
+            <pldwar>Enlight,Phalanx,Defense Boost,Reprisal,Enmity Boost,Palisade,Sentinel,Rampart,Fealty,Majesty,Protect,Shell</pldwar>
+            <rdmblm>Composure,Haste,Refresh,Regen,Multi Strikes,En(fir|bli|aer|sto|thu|wat).*,Phalanx,(.*) Spikes,(.*) Boost,Stoneskin,Blink,Aquaveil,Protect,Shell,Bar(fire|bliz|aero|ston|thun|wate).*,Bar(slee|pois|para|blin|sile|petr|viru|amne).*</rdmblm>
+            <rdmblu>Composure,Haste,Refresh,Regen,Multi Strikes,En(fir|bli|aer|sto|thu|wat).*,Defense Boost,Phalanx,(.*) Spikes,^(?!Defense).+Boost,Stoneskin,Blink,Aquaveil,Protect,Shell,Bar(fire|bliz|aero|ston|thun|wate).*,Bar(slee|pois|para|blin|sile|petr|viru|amne).*</rdmblu>
+            <rdmdnc>Composure,Haste,Refresh,Regen,Multi Strikes,En(fir|bli|aer|sto|thu|wat).*,Phalanx,(.*) Spikes,(.*) Boost,Stoneskin,Blink,Aquaveil,Protect,Shell,Bar(fire|bliz|aero|ston|thun|wate).*,Bar(slee|pois|para|blin|sile|petr|viru|amne).*,(.*) Samba</rdmdnc>
+            <rdmnin>Composure,Haste,Refresh,Regen,Multi Strikes,En(fir|bli|aer|sto|thu|wat).*,Phalanx,(.*) Spikes,(.*) Boost,Stoneskin,Aquaveil,Protect,Shell,Bar(fire|bliz|aero|ston|thun|wate).*,Bar(slee|pois|para|blin|sile|petr|viru|amne).*,Copy Image(.*)</rdmnin>
+            <rdmsch>Reraise,Addendum(.*),Composure,Haste,Refresh,Regen,Multi Strikes,En(fir|bli|aer|sto|thu|wat).*,Phalanx,(.*) Spikes,(.*) Boost,Stoneskin,Blink,Aquaveil,Protect,Shell,Bar(fire|bliz|aero|ston|thun|wate).*,Bar(slee|pois|para|blin|sile|petr|viru|amne).*,Klimaform,(.*)storm</rdmsch>
             <thfdnc>(.*) Samba</thfdnc>
             <thfnin>Conspirator,Copy Image(.*)</thfnin>
             <thfwar>Conspirator,Berserk,Aggressor,Warcry</thfwar>
@@ -54,8 +56,30 @@
                 <width>0</width>
             </stroke>
         </text>
+        <ui>
+            <minimized>false</minimized>
+            <scale>1</scale>
+        </ui>
     </global>
     <jintawk>
+        <bg>
+            <alpha>200</alpha>
+        </bg>
+        <flags>
+            <bold>false</bold>
+        </flags>
+        <pos>
+            <x>1621</x>
+            <y>1848</y>
+        </pos>
+        <text>
+            <size>8</size>
+        </text>
+        <ui>
+            <minimized>true</minimized>
+        </ui>
+    </jintawk>
+    <jinvoco>
         <bg>
             <alpha>128</alpha>
         </bg>
@@ -63,13 +87,16 @@
             <bold>false</bold>
         </flags>
         <pos>
-            <x>1801</x>
-            <y>1697</y>
+            <x>3666</x>
+            <y>1669</y>
         </pos>
         <text>
             <size>8</size>
         </text>
-    </jintawk>
+        <ui>
+            <minimized>true</minimized>
+        </ui>
+    </jinvoco>
     <jyntawk>
         <bg>
             <alpha>128</alpha>
@@ -84,6 +111,9 @@
         <text>
             <size>8</size>
         </text>
+        <ui>
+            <minimized>true</minimized>
+        </ui>
     </jyntawk>
     <jynvoco>
         <bg>
@@ -93,12 +123,15 @@
             <bold>false</bold>
         </flags>
         <pos>
-            <x>1814</x>
-            <y>516</y>
+            <x>14</x>
+            <y>1562</y>
         </pos>
         <text>
             <size>8</size>
         </text>
+        <ui>
+            <minimized>true</minimized>
+        </ui>
     </jynvoco>
     <kifavoco>
         <bg>
@@ -114,5 +147,26 @@
         <text>
             <size>8</size>
         </text>
+        <ui>
+            <minimized>true</minimized>
+        </ui>
     </kifavoco>
+    <liweili>
+        <bg>
+            <alpha>128</alpha>
+        </bg>
+        <flags>
+            <bold>false</bold>
+        </flags>
+        <pos>
+            <x>1667</x>
+            <y>1887</y>
+        </pos>
+        <text>
+            <size>8</size>
+        </text>
+        <ui>
+            <minimized>true</minimized>
+        </ui>
+    </liweili>
 </settings>

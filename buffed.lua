@@ -22,8 +22,9 @@ require "util"
 require "debuffs"
 
 -- [ Init settings ]
-local defaults = {}
-local settings = config.load(defaults)
+-- gui.lua owns the config table (global `settings`); reuse it so position
+-- saves and the buff lists live in one table
+local settings = settings
 
 -- [ vars ]
 local cachedBuffIds = {}
