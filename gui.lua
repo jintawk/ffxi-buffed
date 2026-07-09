@@ -1,6 +1,11 @@
 require('strings')
 config = require('config')
-slate = require('slate')
+-- shared Slate UI lib when present; the bundled copy makes a standalone clone work
+local slate_ok
+slate_ok, slate = pcall(require, 'slate')
+if not slate_ok then
+	slate = require('slate_bundled')
+end
 
 local defaults = {
 	pos = { x = 300, y = 475 },
