@@ -6,7 +6,7 @@ This allows you to easily tell [at a glance] whether you are missing buffs or no
 
 
 
-![Ku-Screenshot](/assets/screenshot.png?raw=true "KU")
+![buffed screenshot](/assets/screenshot.png?raw=true "buffed")
 
 **Features:**
 
