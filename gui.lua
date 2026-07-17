@@ -1,11 +1,12 @@
 require('strings')
 config = require('config')
--- shared Slate UI lib when present; the bundled copy makes a standalone clone work
-local slate_ok
-slate_ok, slate = pcall(require, 'slate')
-if not slate_ok then
-	slate = require('slate_bundled')
+-- shared mythril UI lib when present; the bundled copy makes a standalone clone work
+local mythril_ok
+mythril_ok, mythril = pcall(require, 'mythril')
+if not mythril_ok then
+	mythril = require('mythril_bundled')
 end
+mythril.set_assets_path(windower.addon_path .. 'assets/')
 
 local defaults = {
 	pos = { x = 300, y = 475 },
@@ -32,14 +33,15 @@ local function build_ui()
 		return
 	end
 	ui.built = true
-	slate.set_scale(tonumber(settings.ui.scale) or 1)
+	mythril.set_scale(tonumber(settings.ui.scale) or 1)
 
-	ui.panel = slate.Panel({
+	ui.panel = mythril.Panel({
 		x = settings.pos.x,
 		y = settings.pos.y,
+		pos_source = function() return settings.pos.x, settings.pos.y end,
 		w = UI_W,
 		content_h = 40,
-		title = 'BUFFED',
+		title = 'Buffed',
 		minimized = settings.ui.minimized,
 		on_move = function(x, y)
 			settings.pos.x = x
@@ -55,7 +57,7 @@ end
 
 local function ensure_rows(n)
 	for i = #ui.rows + 1, n do
-		local row = slate.Label({size = 10, color = slate.color.text})
+		local row = mythril.Label({size = 10, color = mythril.color.text})
 		ui.panel:add(row, 10, 4 + (i - 1) * ROW_H)
 		ui.rows[i] = row
 	end
@@ -84,13 +86,13 @@ function UpdateGUI(currentBuffsToDisplay)
 			ui.panel:place(row, 10, 4 + (slot - 1) * ROW_H)
 			row:text(string.sub(item.name, 1, 20))
 			if item.debuff then
-				row:color(slate.color.bad)
+				row:color(mythril.color.bad)
 			elseif item.tracked == false then
-				row:color(slate.color.text)
+				row:color(mythril.color.text)
 			elseif item.active then
-				row:color(slate.color.ok)
+				row:color(mythril.color.ok)
 			else
-				row:color(slate.color.warn)
+				row:color(mythril.color.warn)
 			end
 		end
 	end
@@ -106,9 +108,9 @@ function UpdateGUI(currentBuffsToDisplay)
 	end
 end
 
--- Slate protocol + user commands; buffed had no command handler before
+-- mythril command hook + user commands; buffed had no command handler before
 windower.register_event('addon command', function(...)
-	if slate.handle_command(...) then
+	if mythril.handle_command(...) then
 		return
 	end
 	local args = {...}
@@ -118,7 +120,7 @@ windower.register_event('addon command', function(...)
 		if n and n >= 0.5 and n <= 3 then
 			settings.ui.scale = n
 			config.save(settings)
-			slate.set_scale(n)
+			mythril.set_scale(n)
 			windower.add_to_chat(207, 'buffed: HUD scale set to ' .. n)
 		else
 			windower.add_to_chat(207, 'buffed: usage //buffed scale <0.5-3>')
