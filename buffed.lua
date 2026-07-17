@@ -1,6 +1,6 @@
 -- [ Windower settings ]
 _addon.name = 'buffed'
-_addon.version = '1.5'
+_addon.version = '1.6'
 _addon.author = 'Jintawk/Jynvoco (Asura)'
 _addon.command = 'buffed'
 

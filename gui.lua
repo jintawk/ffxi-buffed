@@ -75,7 +75,8 @@ function UpdateGUI(currentBuffsToDisplay)
 
 	local n = currentBuffsToDisplay.count
 	ensure_rows(n)
-	ui.panel:content_height(4 + n * ROW_H + 4)
+	-- +8 bottom pad so the last row's text clears the frame border
+	ui.panel:content_height(4 + n * ROW_H + 8)
 
 	local slot = 0
 	for i = currentBuffsToDisplay.first, currentBuffsToDisplay.last do

@@ -69,15 +69,12 @@
             <bold>false</bold>
         </flags>
         <pos>
-            <x>1705</x>
-            <y>1813</y>
+            <x>1818</x>
+            <y>1853</y>
         </pos>
         <text>
             <size>8</size>
         </text>
-        <ui>
-            <minimized>true</minimized>
-        </ui>
     </jintawk>
     <jinvoco>
         <bg>
